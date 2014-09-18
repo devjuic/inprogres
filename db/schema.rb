@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918195538) do
+ActiveRecord::Schema.define(version: 20140918201623) do
+
+  create_table "categories", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "flags", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "project_memberships", force: true do |t|
     t.integer  "user_id"
@@ -29,6 +41,28 @@ ActiveRecord::Schema.define(version: 20140918195538) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "task_categorizations", force: true do |t|
+    t.integer  "task_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "task_categorizations", ["category_id"], name: "index_task_categorizations_on_category_id"
+  add_index "task_categorizations", ["task_id", "category_id"], name: "index_task_categorizations_on_task_id_and_category_id", unique: true
+  add_index "task_categorizations", ["task_id"], name: "index_task_categorizations_on_task_id"
+
+  create_table "task_flags", force: true do |t|
+    t.integer  "task_id"
+    t.integer  "flag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "task_flags", ["flag_id"], name: "index_task_flags_on_flag_id"
+  add_index "task_flags", ["task_id", "flag_id"], name: "index_task_flags_on_task_id_and_flag_id", unique: true
+  add_index "task_flags", ["task_id"], name: "index_task_flags_on_task_id"
 
   create_table "tasks", force: true do |t|
     t.string   "title"
