@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918185101) do
+ActiveRecord::Schema.define(version: 20140918194215) do
+
+  create_table "project_memberships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "project_memberships", ["project_id"], name: "index_project_memberships_on_project_id"
+  add_index "project_memberships", ["user_id", "project_id"], name: "index_project_memberships_on_user_id_and_project_id", unique: true
+  add_index "project_memberships", ["user_id"], name: "index_project_memberships_on_user_id"
+
+  create_table "projects", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
