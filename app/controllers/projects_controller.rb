@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   # GET /projects.json
-  def index
+  def dashboard
     @projects = Project.all
   end
 

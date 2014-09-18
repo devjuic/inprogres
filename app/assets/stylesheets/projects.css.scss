@@ -1,3 +1,15 @@
-// Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#projects_column {
+	background-color: $light-gray;
+	height:100vh;
+}
+
+#project_column {
+	background-color: $off-white;
+	height:100vh;
+}
+
+
+#inprogress_column {
+	background-color: $light-gray;
+	height:100vh;
+}
