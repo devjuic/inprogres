@@ -3,37 +3,21 @@
     <h3>projects</h3>
 
     <%= render 'form' %>
-
-
-    <% col_1_set = @projects.each_with_index.map { |project, index| project if index % 2 == 0}.compact %>
-    <% col_2_set = @projects.each_with_index.map { |project, index| project if index % 2 == 1}.compact %>
-    <div class="row">
-      <div class="col-xs-offset-1 col-xs-5">
-        <% col_1_set.each do |item| %>
+     
+    <% @projects.each do |item| %>
+      <div class="col-xs-6 well-box">
         <div class="well">
           <p class="title"><%= item.title %></p>
-          <p>tasks:</p>
-          <p>in progress:</p>
-          <p>completed:</p>
+          <div class="info">
+            <p>tasks:</p>
+            <p>in progress:</p>
+            <p>completed:</p>
+          </div>
         </div>
-        
-        <% end %>
       </div>
-        
-      <div class="col-xs-5">
-        <% col_2_set.each do |item| %>
-        <div class="well">
-          <p class="title"><%= item.title %></p>
-          <p>tasks:</p>
-          <p>in progress:</p>
-          <p>completed:</p>
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <br>
-
+    <% end %>
   </div>
+
   <div class="col-sm-4" id="project_column">
     <h3>Project Selected</h3>
 

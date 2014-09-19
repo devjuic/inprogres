@@ -1,0 +1,11 @@
+var html = '<div class="col-xs-6 well-box"> \
+        <div class="well"> \
+        <p class="title"><%= @project.title %></p> \
+        <p>tasks:</p> \
+        <p>in progress:</p> \
+        <p>completed:</p> \
+        </div> \
+      </div>';
+
+$('#projects_column').append(html);
+$('#form-control-project-title').val('');
