@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :tasks
 
   resources :projects
-  get '/dashboard' => "projects#dashboard"
+  get '/dashboard' => "projects#dashboard", as: :dashboard
   
   devise_for :users
   get 'home/index'

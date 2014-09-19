@@ -8,15 +8,18 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="container-fluid">
+  <nav class="navbar">
+    <h2>inprogres</h2>
     <% if notice || alert %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     <% end %>
+  </nav>
   
-  
+  <div class="container-fluid">
     <%= yield %>
   </div>
 

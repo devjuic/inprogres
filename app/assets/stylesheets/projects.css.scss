@@ -1,15 +1,32 @@
 #projects_column {
-	background-color: $light-gray;
-	height:100vh;
+	background-color: $medium-gray;
+	border-right: 1px solid black;
+	height:200vh;
 }
 
 #project_column {
 	background-color: $off-white;
-	height:100vh;
+	border-right: 1px solid black;
+	height:200vh;
 }
 
 
 #inprogress_column {
+	background-color: $medium-gray;
+	height:200vh;
+}
+
+.well {
 	background-color: $light-gray;
-	height:100vh;
+	border: 1px solid black;
+	border-radius: 0px;
+	padding: 0px;
+	text-align: center;
+	margin-top: 5px;
+	.title {
+		background-color: $off-white;
+		border-bottom: 1px solid black;	
+		padding: 5px 0;
+	}
+	
 }
