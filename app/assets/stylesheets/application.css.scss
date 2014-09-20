@@ -21,4 +21,14 @@ body {
 .notice {
 	float: right;
 }
-
+a {
+  color: black;
+  &:visited {
+    color: black;
+  }
+  &:hover {
+    color: black;
+    background-color: #000;
+    text-decoration: none;
+  }
+}

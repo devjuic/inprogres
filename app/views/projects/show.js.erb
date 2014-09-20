@@ -12,3 +12,5 @@ var myhtml = '<h3> \
               </div>';
 
 $('#project_details').html(myhtml);
+$('.selected-project').removeClass('selected-project');
+$('.selected-<%= @project.id %>').addClass('selected-project');

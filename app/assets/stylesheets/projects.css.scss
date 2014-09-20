@@ -25,6 +25,15 @@
 #form-control-project-title {
 	border-radius: 0;
 }
+#new_task {
+	margin: 5px;
+}
+#new-task {
+	border-radius: 0;
+}
+#project-details {
+	margin-top: 10px;
+}
 
 .well {
 	background-color: $light-gray;
@@ -47,7 +56,23 @@
 	background-color: white;
 	border: 1px solid black;
 	margin: 5px;
-	padding: 5px;
+	padding: 10px;
 }
+.selected-project {
+	.title {
+		background-color: green;
+		color: $off-white;
+		margin-bottom: 0;
+	}
+	.info {
+		background-color: $medium-gray;
+		color: $off-white;
+		padding: 10px 5px;
+	}
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
 
 

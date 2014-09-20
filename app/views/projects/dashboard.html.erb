@@ -7,7 +7,7 @@
     <% @projects.each do |item| %>
       <div class="col-xs-6 well-box">
         <%= link_to item, remote: true do %>
-          <div class="well">
+          <div class="well selected-<%= item.id %>">
             <p class="title"><%= item.title %></p>
             <div class="info">
               <p>tasks: 
