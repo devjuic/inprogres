@@ -1,0 +1,14 @@
+var myhtml = '<h3> \
+				<%= @project.title%> \
+				(<span class="task-count-<%= @project.id %>"><%= @project.tasks.count %></span>) \
+			  </h3> \
+              <%= j render partial: "form2" %> \
+              <div id="project_details"> \
+              <% @project.tasks.each do |task|%> \
+              <div class="task-box"> \
+              <%= task.title %> \
+              </div> \
+              <% end %> \
+              </div>';
+
+$('#project_details').html(myhtml);

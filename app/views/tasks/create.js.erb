@@ -1,0 +1,7 @@
+var html = '<div class="task-box"> \
+              <%= @task.title %> \
+            </div>';
+
+$('#project_details').append(html);
+$('.task-count-<%= @project.id %>').html("<%= @project.tasks.count %>");
+$('#new-task').val('').blur();

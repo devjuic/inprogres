@@ -6,24 +6,27 @@
      
     <% @projects.each do |item| %>
       <div class="col-xs-6 well-box">
-        <div class="well">
-          <p class="title"><%= item.title %></p>
-          <div class="info">
-            <p>tasks:</p>
-            <p>in progress:</p>
-            <p>completed:</p>
+        <%= link_to item, remote: true do %>
+          <div class="well">
+            <p class="title"><%= item.title %></p>
+            <div class="info">
+              <p>tasks: 
+                <span class="task-count-<%= item.id %>"><%=item.tasks.count%></span></p>
+              <p>in progress:</p>
+              <p>completed:</p>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
 
   <div class="col-sm-4" id="project_column">
-    <h3>Project Selected</h3>
-
+    <div id="project_details">
+      <p>Please, select a project.</p>
+    </div>
   </div>
   <div class="col-sm-4" id="inprogress_column">
-    <h3>inprogress section</h3>
 
   </div>
 

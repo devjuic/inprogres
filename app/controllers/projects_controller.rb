@@ -6,11 +6,16 @@ class ProjectsController < ApplicationController
   def dashboard
     @projects = Project.all
     @project = Project.new
+    @task = Task.new
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @task = Task.new
+    respond_to do |format|
+      format.js
+    end 
   end
 
   # GET /projects/new

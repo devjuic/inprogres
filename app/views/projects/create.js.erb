@@ -1,11 +1,15 @@
 var html = '<div class="col-xs-6 well-box"> \
-        <div class="well"> \
-        <p class="title"><%= @project.title %></p> \
-        <p>tasks:</p> \
-        <p>in progress:</p> \
-        <p>completed:</p> \
-        </div> \
-      </div>';
+		      <%= link_to @project, remote: true do %> \
+                <div class="well"> \
+                 <p class="title"><%= @project.title %></p> \
+                 <div class="info"> \
+                   <p>tasks: <span class="task-count-<%= @project.id %>"><%=@project.tasks.count%></span></p> \
+                   <p>in progress:</p> \
+                   <p>completed:</p> \
+                 </div> \
+                </div> \
+              <% end %> \
+            </div>';
 
 $('#projects_column').append(html);
-$('#form-control-project-title').val('');
+$('#form-control-project-title').val('').blur();

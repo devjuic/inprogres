@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   resources :flags
 
-  resources :tasks
-
-  resources :projects
+  resources :projects do
+    resources :tasks
+  end
   get '/dashboard' => "projects#dashboard", as: :dashboard
   
   devise_for :users
