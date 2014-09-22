@@ -1,16 +1,32 @@
-var myhtml = '<h3> \
-				<%= @project.title%> \
-				(<span class="task-count-<%= @project.id %>"><%= @project.tasks.count %></span>) \
-			  </h3> \
+var myhtml = '<h3 id="project-title"> \
+				        <%= @project.title%> \
+				        (<span class="task-count-<%= @project.id %>"><%= @project.tasks.count %></span>) \
+			        </h3> \
               <%= j render partial: "form2" %> \
               <div id="project_details"> \
-              <% @project.tasks.each do |task|%> \
-              <div class="task-box"> \
-              <%= task.title %> \
-              </div> \
-              <% end %> \
+                <% @project.tasks.each do |task|%> \
+                    <div class="task-box input-group"> \
+                      <p><%= task.title %></p> \
+                      <span class="input-group-btn"> \
+                        <button class="btn btn-default" type="button" ><i class="fa fa-caret-down"></i></button> \
+                      </span> \
+                    </div> \
+                    <% unless task.description.nil? %> \
+                      <div class="get-hidden"> \
+                        <p><%= task.description %></p> \
+                      </div> \
+                    <% end %> \
+                <% end %> \
               </div>';
 
 $('#project_details').html(myhtml);
 $('.selected-project').removeClass('selected-project');
 $('.selected-<%= @project.id %>').addClass('selected-project');
+
+$('button').click(function() {
+	var a = $('.get-hidden');
+	if (a.is(':hidden'))
+		a.slideDown('slow');
+	else
+		a.slideUp('slow');
+});
