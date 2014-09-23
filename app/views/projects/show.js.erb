@@ -8,7 +8,9 @@ var myhtml = '<h3 id="project-title"> \
                     <div class="task-box input-group"> \
                       <p><%= task.title %></p> \
                       <span class="input-group-btn"> \
-                        <button class="btn btn-default" type="button" ><i class="fa fa-caret-down"></i></button> \
+                        <button class="btn btn-default" type="button" > \
+                          <i class="fa fa-caret-down"></i> \
+                        </button> \
                       </span> \
                     </div> \
                     <% unless task.description.nil? %> \
@@ -24,9 +26,15 @@ $('.selected-project').removeClass('selected-project');
 $('.selected-<%= @project.id %>').addClass('selected-project');
 
 $('button').click(function() {
-	var a = $('.get-hidden');
-	if (a.is(':hidden'))
-		a.slideDown('slow');
-	else
-		a.slideUp('slow');
+  if ($(this).parent().parent().next().hasClass('get-hidden')) {
+
+    $(this).parent().parent().next().slideToggle('fast');
+
+    if ($(this).find('i').hasClass('fa-caret-down')) {
+      $(this).find('i').removeClass('fa-caret-down').addClass('fa-caret-up');
+    } else if ($(this).find('i').hasClass('fa-caret-up')) {
+      $(this).find('i').removeClass('fa-caret-up').addClass('fa-caret-down');
+    } 
+  }
+ 
 });
