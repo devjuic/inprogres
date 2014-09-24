@@ -7,12 +7,14 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     @project = Project.new
     @task = Task.new
+    @categories = Category.all 
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
     @task = Task.new
+    @categories = Category.all
     respond_to do |format|
       format.js
     end 
