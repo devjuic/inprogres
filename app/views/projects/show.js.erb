@@ -3,8 +3,13 @@ var myhtml = '<h3 id="project-title"> \
 				        (<span class="task-count-<%= @project.id %>"><%= @project.tasks.count %></span>) \
 			        </h3> \
               <%= j render partial: "form2" %> \
+              <div> \
+                <p>Filter by: Most recent Category Flag Priority </p> \
+              </div> \
               <div id="project_details"> \
+              <ul id="sortable1"> \
                 <% @project.tasks.each do |task|%> \
+                  <li> \
                     <div class="task-box input-group"> \
                       <p><%= task.title %></p> \
                       <span class="input-group-btn"> \
@@ -18,7 +23,9 @@ var myhtml = '<h3 id="project-title"> \
                         <p><%= task.description %></p> \
                       </div> \
                     <% end %> \
+                  </li> \
                 <% end %> \
+              </ul> \
               </div>';
 
 $('#project_details').html(myhtml);
@@ -38,3 +45,10 @@ $('button').click(function() {
   }
  
 });
+
+$('#sortable1, #sortable2').sortable({
+    connectWith: '.connected'
+});
+
+
+

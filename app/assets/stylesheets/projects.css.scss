@@ -29,14 +29,13 @@
 	border-radius: 0;
 }
 #new_task {
-	margin: 5px;
+	margin: 5px 0;
 }
 #new-task {
 	border-radius: 0;
 }
 #project-title {
 	color: $green;
-	padding-left: 5px;
 }
 #project-details {
 	margin-top: 10px;
@@ -62,7 +61,7 @@
 .task-box {
 	background-color: white;
 	border: 1px solid black;
-	margin: 5px 5px 0 5px;
+	margin-top: 5px;
 	padding: 0px;
 	p {
         padding: 10px;
@@ -74,7 +73,7 @@
 	background-color: white;
 	border: 1px solid black;
 	border-top: none;
-	margin: 0 6px 0 5px;
+	margin-right: 1px;
 	p {
 		padding: 10px;
 	}
