@@ -10,7 +10,7 @@ var myhtml = '<%= link_to "+Category", new_category_path, class: "pull-right" %>
               <div id="project_details"> \
               <ul id="sortable1"> \
                 <% @project.tasks.each do |task|%> \
-                  <li> \
+                  <li draggable="true" id="<%= @project.id %>-<%= task.id %>"> \
                     <div class="task-box input-group"> \
                       <p><%= task.title %></p> \
                       <span class="input-group-btn"> \
@@ -54,6 +54,4 @@ $('button').click(function() {
 $('#sortable1, #sortable2').sortable({
     connectWith: '.connected'
 });
-
-
 
