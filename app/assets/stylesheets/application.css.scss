@@ -13,26 +13,8 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 }
-
-ul {
-  padding-left: 0px;
-}
-
-li {
-  display: block;
-}
-.sortable-placeholder {
-  border: 1px dotted $off-white;
-  background-color: $light-gray;
-  height: 40px;
-  margin-top: 5px;
-}
 .navbar {
-	border-bottom: 1px solid black;
-	margin-bottom: 0px;
-	h2 {
-		float: left;
-	}
+  margin-bottom: 0px;
 }
 .notice {
 	float: right;
