@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def dashboard
-    @projects = current_user.projects
+    @projects = current_user.projects.all
     @project = Project.new
     @task = Task.new
     @categories = Category.all 
@@ -34,9 +34,9 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
     respond_to do |format|
       if @project.save
+        current_user.projects << @project
         format.html { redirect_to dashboard_path, notice: 'Project was successfully created.' }
         format.js
         format.json { render :show, status: :created, location: @project }
