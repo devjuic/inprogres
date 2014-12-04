@@ -1,10 +1,11 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
   def dashboard
-    @projects = Project.all
+    @projects = current_user.projects
     @project = Project.new
     @task = Task.new
     @categories = Category.all 
