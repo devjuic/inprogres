@@ -8,9 +8,9 @@ var myhtml = '<%= link_to "+Category", new_category_path, class: "pull-right" %>
                 <p>Filter by: Most recent Category Flag Priority </p> \
               </div> \
               <div id="project_details"> \
-              <ul id="sortable1" ondrop="drop(event)" ondragover="allowDrop(event)"> \
+              <ul id="sortable1"> \
                 <% @project.tasks.each do |task|%> \
-                  <li draggable="true" ondragstart="drag(event)" id="<%= @project.id %>-<%= task.id %>"> \
+                  <li id="<%= @project.id %>-<%= task.id %>"> \
                     <div class="task-box input-group"> \
                       <p><%= task.title %></p> \
                       <span class="input-group-btn"> \
@@ -51,18 +51,5 @@ $('button').click(function() {
  
 });
 
-
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-}
+$( "#sortable1" ).sortable({ connectWith: "#sortable2" });
+$( "#sortable2" ).sortable({ connectWith: "#sortable1" });
