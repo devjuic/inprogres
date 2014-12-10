@@ -10,6 +10,9 @@
 #sortable2, #sortable1 {
   height: 100vh;
 }
+#projects_column .fa {
+  margin-left: 20px;
+}
 
 body {
 	font-family: 'Open Sans', sans-serif;
@@ -20,6 +23,7 @@ body {
 .notice {
 	float: right;
 }
+
 a {
   color: black;
   &:visited {
