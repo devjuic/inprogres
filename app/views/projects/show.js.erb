@@ -12,7 +12,11 @@ var myhtml = '<%= link_to "+Category", new_category_path, class: "pull-right" %>
                 <% @project.tasks.each do |task|%> \
                   <li id="<%= @project.id %>-<%= task.id %>"> \
                     <div class="task-box input-group"> \
-                      <p><%= task.title %></p> \
+                      <p><%= task.title %> \
+                        <%= link_to project_task_path(@project.id, task.id), :method => :delete do %> \
+                          <i class="fa fa-trash-o"></i> \
+                        <% end %> \
+                      </p> \
                       <span class="input-group-btn"> \
                         <button class="btn btn-default" type="button" > \
                           <i class="fa fa-caret-down"></i> \
