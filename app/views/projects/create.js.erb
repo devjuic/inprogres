@@ -1,7 +1,11 @@
 var html = '<div class="col-xs-6 well-box"> \
-		      <%= link_to @project, remote: true do %> \
+		          <%= link_to @project, remote: true do %> \
                 <div class="well"> \
-                 <p class="title"><%= @project.title %></p> \
+                 <p class="title"><%= @project.title %> \
+                    <%= link_to @project, :method => :delete, remote: true do %> \
+                      <i class="fa fa-trash-o"></i> \
+                    <% end %> \
+                 </p> \
                  <div class="info"> \
                    <p>tasks: <span class="task-count-<%= @project.id %>"><%=@project.tasks.count%></span></p> \
                    <p>in progress:</p> \
