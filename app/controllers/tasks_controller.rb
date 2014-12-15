@@ -62,6 +62,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
+      format.js { render :destroy, notice: 'Task was successfully destroyed.'}
       format.html { redirect_to dashboard_path, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
