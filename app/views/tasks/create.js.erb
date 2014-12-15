@@ -1,7 +1,30 @@
-var html = '<div class="task-box"> \
-              <p><%= @task.title %></p> \
-            </div>';
+var html = '<li id="<%= @project.id %>-<%= @task.id %>"> \
+	            <div class="task-box input-group"> \
+	              <p><%= @task.title %> \
+	                <%= link_to project_task_path(@project.id, @task.id), :method => :delete, remote: true do %> \
+	                  <i class="fa fa-trash-o"></i> \
+	                <% end %> \
+	                <%= link_to [:edit, @project, @task] do %> \
+	                  <i class="fa fa-eraser"></i> \
+	                <% end %> \
+	              </p> \
+	              <span class="input-group-btn"> \
+	                <button class="btn btn-default" type="button" > \
+	                  <i class="fa fa-caret-down"></i> \
+	                </button> \
+	              </span> \
+	            </div> \
+	            <% unless @task.description.nil? %> \
+	              <div class="get-hidden"> \
+	                <%= j collection_select(@task, :category_id, Category.all, :id, :title) %> \
+	                <p><%= @task.description %></p> \
+	                <% @task.categories.each do |category|%> \
+	                  <p><%= category.title %></p> \
+	                <% end %> \
+	              </div> \
+	            <% end %> \
+            </li>';
 
-$('#project_details').append(html);
+$('#sortable1').append(html);
 $('.task-count-<%= @project.id %>').html("<%= @project.tasks.count %>");
 $('#new-task').val('').blur();
