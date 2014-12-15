@@ -22,16 +22,15 @@ body {
 }
 .notice {
 	float: right;
+  padding-top: 15px;
 }
-
+.alert {
+  padding-top: 15px;
+}
 a {
   color: black;
-  &:visited {
-    color: black;
-  }
   &:hover {
     color: black;
-    background-color: transparent;
-    text-decoration: none;
   }
+
 }
