@@ -1,7 +1,7 @@
 var html = '<div class="col-xs-6 well-box" id="project-<%= @project.id %>"> \
 		          <%= link_to @project, remote: true do %> \
-                <div class="well"> \
-                 <p class="title"><%= @project.title %> \
+                <div class="well selected-<%= @project.id %>"> \
+                 <p class="title"><%= @project.title.titleize %> \
                     <%= link_to @project, :method => :delete, remote: true do %> \
                       <i class="fa fa-trash-o"></i> \
                     <% end %> \

@@ -32,5 +32,8 @@ a {
   &:hover {
     color: black;
   }
-
+}
+input[type="text"]:focus {
+  border-color: black;
+  box-shadow: none;
 }
