@@ -1,1 +1,2 @@
 $('#<%= @task.project.id %>-<%= @task.id %>').remove();
+$('.task-count-<%= @task.project.id %>').html("<%= @task.project.tasks.count %>");
