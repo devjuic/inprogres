@@ -16,6 +16,9 @@ var myhtml = '<%= link_to "+Category", new_category_path, class: "pull-right" %>
                         <%= link_to project_task_path(@project.id, task.id), :method => :delete do %> \
                           <i class="fa fa-trash-o"></i> \
                         <% end %> \
+                        <%= link_to [:edit, @project, task] do %> \
+                          <i class="fa fa-eraser"></i> \
+                        <% end %> \
                       </p> \
                       <span class="input-group-btn"> \
                         <button class="btn btn-default" type="button" > \

@@ -30,6 +30,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         @project.tasks << @task
+        @task.status= :unstarted
         format.html { redirect_to dashboard_path, notice: 'Task was successfully created.' }
         format.js
         format.json { render :show, status: :created, location: @task }
@@ -43,6 +44,8 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+    @task = Task.find(params[:task_id])
+    @project = Project.find(params[:project_id])
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to dashboard_path, notice: 'Task was successfully updated.' }
