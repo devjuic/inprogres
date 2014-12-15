@@ -1,17 +1,17 @@
 #projects_column {
-	background-color: $medium-gray;
-	border-right: 1px solid black;
+	background-color: $light-gray;
+	border-right: 1px solid $medium-gray;
 	height:200vh;
 }
 
 #project_column {
 	background-color: $off-white;
-	border-right: 1px solid black;
+	border-right: 1px solid $medium-gray;
 	height:200vh;
 }
 
 #inprogress_column {
-	background-color: $medium-gray;
+	background-color: $off-white;
 	height:200vh;
 }
 
@@ -35,14 +35,14 @@
 	border-radius: 0;
 }
 #project-title {
-	color: $green;
+	color: $accent-color;
 }
 #project-details {
 	margin-top: 10px;
 }
 
 .well {
-	background-color: $light-gray;
+	background-color: $off-white;
 	border: 1px solid black;
 	border-radius: 0px;
 	padding: 0px;
@@ -79,13 +79,17 @@
 }
 .selected-project {
 	.title {
-		background-color: $green;
-		color: $off-white;
+		background-color: white;
+		color: $accent-color;
 		margin-bottom: 0;
+		a {
+			color: $accent-color;
+			text-decoration: none;
+		}
 	}
 	.info {
-		background-color: $medium-gray;
-		color: $off-white;
+		background-color: $off-white;
+		color: $accent-color;
 		padding: 10px 5px;
 	}
 	p:last-child {
@@ -107,12 +111,6 @@ ul {
 
 li {
   display: block;
-}
-.sortable-placeholder {
-  border: 1px dotted $off-white;
-  background-color: $light-gray;
-  height: 40px;
-  margin-top: 5px;
 }
 
 

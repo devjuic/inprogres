@@ -1,6 +1,6 @@
 var myhtml = '<%= link_to "+Category", new_category_path, class: "pull-right" %> \
               <h3 id="project-title"> \
-				        <%= @project.title%> \
+				        <%= @project.title.titleize %> \
 				        (<span class="task-count-<%= @project.id %>"><%= @project.tasks.count %></span>) \
 			        </h3> \
               <%= j render partial: "form2" %> \
@@ -12,6 +12,7 @@ var myhtml = '<%= link_to "+Category", new_category_path, class: "pull-right" %>
                 <% @project.tasks.each do |task|%> \
                   <li id="<%= @project.id %>-<%= task.id %>"> \
                     <div class="task-box input-group"> \
+                      <%= hidden_field_tag "task.status", task.status %> \
                       <p><%= task.title %> \
                         <%= link_to project_task_path(@project.id, task.id), :method => :delete, remote: true do %> \
                           <i class="fa fa-trash-o"></i> \
@@ -59,7 +60,7 @@ $('button').click(function() {
 });
 $( "#sortable2" ).droppable({
   drop: function() {
-    $( "#sortable2 li" ).addClass('inprogress'); 
+    $( "#task.status" ).data("status", "INPROGRESS"); 
   }
 });
 

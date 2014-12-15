@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-4" id="projects_column">
-    <h3>projects</h3>
+    <h3>Projects</h3>
 
     <%= render 'form' %>
      
@@ -8,7 +8,7 @@
       <div class="col-xs-6 well-box">
         <%= link_to item, remote: true do %>
           <div class="well selected-<%= item.id %>">
-            <p class="title"><%= item.title %> 
+            <p class="title"><%= item.title.titleize %> 
               <%= link_to item, :method => :delete do %>
                 <i class="fa fa-trash-o"></i>
               <% end %>
@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="col-sm-4" id="inprogress_column" >
-    <h3>in progress</h3>
+    <h3>In progress</h3>
     <div>
       <ul id="sortable2">
         
