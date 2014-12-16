@@ -9,7 +9,7 @@ var myhtml = '<%= link_to "+Category", new_category_path, class: "pull-right" %>
               </div> \
               <div id="project_details"> \
               <ul id="sortable1"> \
-                <% @project.tasks.each do |task|%> \
+                <% @project.tasks.notstarted.each do |task|%> \
                   <li id="<%= @project.id %>-<%= task.id %>"> \
                     <div class="task-box input-group"> \
                       <%= hidden_field_tag "task.status", task.status %> \
@@ -60,7 +60,7 @@ $('button').click(function() {
 });
 $( "#sortable2" ).droppable({
   drop: function() {
-    $( "#task.status" ).data("status", "INPROGRESS"); 
+    $.get("/set_status")
   }
 });
 

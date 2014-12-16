@@ -35,7 +35,35 @@
     <h3>In progress</h3>
     <div>
       <ul id="sortable2">
-        
+        <% @inprogress.each do |task| %>
+          <li id="<%= task.project.id %>-<%= task.id %>">
+            <div class="task-box input-group">
+              <%= hidden_field_tag "task.status", task.status %>
+              <p><%= task.title %>
+                <%= link_to project_task_path(task.project.id, task.id), :method => :delete, remote: true do %>
+                  <i class="fa fa-trash-o"></i>
+                <% end %>
+                <%= link_to [:edit, task.project, task] do %>
+                  <i class="fa fa-eraser"></i>
+                <% end %>
+              </p>
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" >
+                  <i class="fa fa-caret-down"></i>
+                </button>
+              </span>
+            </div>
+            <% unless task.description.nil? %>
+              <div class="get-hidden">
+                <%= j collection_select(task, :category_id, Category.all, :id, :title) %>
+                <p><%= task.description %></p>
+                <% task.categories.each do |category|%>
+                  <p><%= category.title %></p>
+                <% end %>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
     

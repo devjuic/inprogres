@@ -2,6 +2,20 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
+  def change_status
+    tasks = params["tasks"]
+    tasks.each do |task|
+      task = Task.find(task[1]["id"])
+      task.status = "INPROGRESS"
+      task.save 
+    end
+    respond_to :js
+  end
+
+  def set_status
+    respond_to :js
+  end
+
   # GET /tasks
   # GET /tasks.json
   def index
@@ -30,7 +44,6 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         @project.tasks << @task
-        @task.status= :unstarted
         format.html { redirect_to dashboard_path, notice: 'Task was successfully created.' }
         format.js
         format.json { render :show, status: :created, location: @task }

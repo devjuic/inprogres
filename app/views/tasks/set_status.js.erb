@@ -1,0 +1,21 @@
+var data_array=[];
+$.each($('#sortable2').children(),function(i,obj) {
+  data_array.push(obj.id.split("-")[1])
+});
+console.log(data_array);
+
+var data = {}
+data.tasks = {}
+
+$.each(data_array,function(i,obj) {
+  var task = "task" + i
+  data.tasks[task] = { "id" : obj }
+});
+
+$.ajax({
+  type: 'PUT',
+  url: "/change_status",
+  data: data
+})
+
+

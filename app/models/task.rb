@@ -5,7 +5,10 @@ class Task < ActiveRecord::Base
   has_many :task_flags
   has_many :flags, through: :task_flags
 
-  before_save :initialize_status
+  before_create :initialize_status
+
+  scope :inprogress, -> { where(status: "INPROGRESS") }
+  scope :notstarted, -> { where(status: "UNSTARTED") }
 
   def initialize_status
     self.status = "UNSTARTED"

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :tasks
   end
   
+  get '/set_status' => 'tasks#set_status'
+  put '/change_status' => "tasks#change_status"
+
   get '/dashboard' => "projects#dashboard", as: :dashboard
   
   devise_for :users

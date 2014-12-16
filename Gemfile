@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'pry'
 # Devise
 gem 'devise' 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
