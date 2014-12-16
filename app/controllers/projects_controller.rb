@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @task = Task.new
     @categories = Category.all
-    @inprogress = Task.inprogress 
+    @inprogress = current_user.tasks.inprogress 
   end
 
   # GET /projects/1

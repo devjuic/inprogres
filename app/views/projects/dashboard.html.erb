@@ -38,7 +38,6 @@
         <% @inprogress.each do |task| %>
           <li id="<%= task.project.id %>-<%= task.id %>">
             <div class="task-box input-group">
-              <%= hidden_field_tag "task.status", task.status %>
               <p><%= task.title %>
                 <%= link_to project_task_path(task.project.id, task.id), :method => :delete, remote: true do %>
                   <i class="fa fa-trash-o"></i>

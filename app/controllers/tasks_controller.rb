@@ -44,6 +44,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         @project.tasks << @task
+        current_user.tasks << @task
         format.html { redirect_to dashboard_path, notice: 'Task was successfully created.' }
         format.js
         format.json { render :show, status: :created, location: @task }
